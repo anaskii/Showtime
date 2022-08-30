@@ -1,0 +1,980 @@
+{%  extends 'dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="{% static 'css4/style.css' %}" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <!-- //fonts -->
+
+
+
+<div class="w3ls-reg">
+            <!-- input fields -->
+            <div class="inputForm">
+               <h1>Ticket booking</h1>
+                <button onclick="takeData()">Start Selecting</button>
+            </div>
+            <!-- //input fields -->
+            <!-- seat availabilty list -->
+            <ul class="seat_w3ls">
+                <li class="smallBox greenBox">Selected Seat</li>
+
+                <li class="smallBox redBox">Reserved Seat</li>
+
+                <li class="smallBox emptyBox">Empty Seat</li>
+            </ul>
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div class="seatStructure txt-center" style="overflow-x:auto;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                <table id="seatsBlock">
+                    <p id="notification"></p>
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>
+                            {% if 'A1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]"  value="A1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]"  value="A1" >
+                            {% endif %}
+                        </td>
+                        <td>
+                             {% if 'A2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A2" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'A3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A3" >
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'A4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'A5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A5">
+                            {% endif %}
+                        </td>
+                        <td class="seatGap"></td>
+                        <td>
+                            {% if 'A6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A6">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'A7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A7">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'A8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A8">
+                            {% endif %}
+
+
+                        </td>
+                        <td>
+                            {% if 'A9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A9">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'A10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A10">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'A11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A11">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'A12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="A12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            {% if 'B1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B2">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'B3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B3">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'B4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'B6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B6">
+                            {% endif %}
+
+                        </td>
+                        <td>
+                            {% if 'B7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'B12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="B12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            {% if 'C1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C5">
+                            {% endif%}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'C6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'C12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="C12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>D</td>
+                        <td>
+                            {% if 'D1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" style="background-color:red;" value="D1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'D6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D8" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'D12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="D12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>E</td>
+                        <td>
+                            {% if 'E1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E1" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E3" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'E6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E6" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'E12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E12" checked disabled>
+                             {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="E12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr class="seatVGap"></tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>
+                            {% if 'F1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats"  name="seats[]" value="F5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'F6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'F12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="F12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>G</td>
+                        <td>
+                            {% if 'G1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'G6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'G12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="G12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>H</td>
+                        <td>
+                            {% if 'H1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'H6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'H12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="H12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>I</td>
+                        <td>
+                            {% if 'I1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'I6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'I12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="I12">
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>J</td>
+                        <td>
+                            {% if 'J1' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J1" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J1">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J2' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J2" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J2">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J3' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J3" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J3">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J4' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J4" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J4">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J5' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J5" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J5">
+                            {% endif %}
+                        </td>
+                        <td></td>
+                        <td>
+                            {% if 'J6' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J6" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J6">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J7' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J7" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J7">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J8' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J8" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J8">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J9' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J9" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J9">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J10' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J10" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J10">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J11' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J11" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J11">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if 'J12' in booked_seat_list2 %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J12" checked disabled>
+                            {% else %}
+                            <input type="checkbox" class="seats" name="seats[]" value="J12">
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+                    <input type="submit" value="Confirm Selection">
+                     </form>
+
+
+                <div class="screen">
+                    <h2 class="wthree">Screen this way</h2>
+                </div>
+
+
+            </div>
+            <!-- //seat layout -->
+            <!-- details after booking displayed here -->
+
+            <!-- //details after booking displayed here -->
+        </div>
+{% endblock %}

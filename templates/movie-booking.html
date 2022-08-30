@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+
+<h1 style="margin-left:8em;">Booking Shedule</h1>
+<br>
+<form method="POST" action="{% url 'moviebooking2' book.id %}">
+
+    {% csrf_token %}
+
+  <label>Choose your show time</label>
+  <br>
+  <label>Time</label>
+  <select name="show">
+    <option value="{{book.show1}}">{{book.show1}}</option>
+    <option value="{{book.show2}}">{{book.show2}}</option>
+    <option value="{{book.show3}}">{{book.show3}}</option>
+
+  </select>
+
+
+  <label style="margin-left:2em;"> Date </label><input type="date" placeholder="date" name="date" value="date" style="margin-left:0.5em;">
+  <input type="submit">
+</form>
+
+
+
+
+
+{% endblock %}

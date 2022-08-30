@@ -1,0 +1,12 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+<h1>You can add your review here!!!</h1>
+<br>
+<form action="{% url 'movie_reviews' movie.id %}" method="POST">
+  {% csrf_token %}
+<textarea rows="4" cols="50" name="review">
+Enter text here...</textarea>
+  <input type="submit">
+</form>
+{% endblock %}

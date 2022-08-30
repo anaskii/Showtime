@@ -1,0 +1,19 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+<h1>You can contact here!!!</h1>
+<br>
+<form action="{% url 'Contact' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+    Name  : <input type="text" name="name" placeholder="Enter the name"><br>
+    Phone : <input type="text" name="pho" placeholder="Enter the phone number"><br>
+    Email : <input type="email" name="email" placeholder="Enter the email"><br>
+    Address:<input type="text" name="address" placeholder="Enter the address"><br>
+<br>
+  <h2>You can message below!!!</h2>
+<textarea rows="4" cols="50" name="message">
+Enter your message here</textarea>
+  <input type="submit">
+</form>
+{% endblock %}

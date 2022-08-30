@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Registration Form</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Auditions Registration Form Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!-- //custom-theme -->
+<link href="static/css1/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="static/js1/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- font-awesome-icons -->
+<!-- //font-awesome-icons -->
+<link href="//fonts.googleapis.com/css?family=Anton&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+</head>
+<body>
+<!-- banner -->
+
+	<div class="center-container">
+	<div class="banner-dott">
+		<div class="main">
+			<h1 class="w3layouts_head">User Registration Form</h1>
+				<div class="w3layouts_main_grid">
+					<form action="{% url 'usersignup' %}" method="POST" class="w3_form_post">
+						{% csrf_token %}
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>UserName</label>
+								<input type="text" name="username" placeholder="Username" required="">
+							</span>
+						</div>
+
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Your Email </label>
+								<input type="text" name="email" placeholder="Your Email" required="">
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Phone Number </label>
+								<input type="text" name="phone" placeholder="Phone Number" required="">
+								</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Password</label>
+								<input type="text" name="password" placeholder="Your Password" required="">
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Location</label>
+								<input type="text" name="location" placeholder="share your location" required="">
+							</span>
+						</div>
+						<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Image</label>
+								<input type="file" name="image" placeholder="image upload here!!" required="">
+							</span>
+						</div>
+
+
+					
+					<div class="w3_main_grid">
+						<div class="w3_main_grid_right">
+							<input type="submit" value="Submit">
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+	</div>
+	</div>
+<!-- //footer -->
+
+</body>
+</html>

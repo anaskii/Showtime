@@ -1,0 +1,91 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+	<title>Accessible Profile Widget a Responsive Widget Template  :: w3layouts</title>
+	<link href="{% static 'css3/style.css' %}" rel='stylesheet' type='text/css'/>
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
+	<link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Accessible Profile Widget Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+			<script src="{% static 'js3/jquery.min.js' %}"></script>
+			<script>$(document).ready(function(c) {
+			$('.alert-close').on('click', function(c){
+				$('.main-agile').fadeOut('slow', function(c){
+					$('.main-agile').remove();
+				});
+			});
+		});
+		</script>
+</head>
+<body>
+
+	<h1 style="color:white;" align="center">ABOUT US</h1>
+		<div class="main-agileits" align="center">
+		<div class="right-wthree">
+				<img src="{% static 'images3/aki.jpeg' %}" style="height:150px;width:150px; border:solid red;">
+				<h2 style="color:white;">Anas k i</h2>
+				<p  style="color:white;">Web Designer & Developer</p>
+			</div>
+			<div class="left-w3ls">
+			<ul class="address">
+				<li>
+					<ul class="address-text">
+						<li><b>PHONE </b></li>
+						<li>: +00 111 444 3333</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>ADDRESS</b></li>
+						<li>:Downtown A12,AMSTERDAM.</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>G-MAIL </b></li>
+						<li><a href="#">: anaski@gmail.com</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>WEBSITE </b></li>
+						<li><a href="#">: www.anaskii.com</a></li>
+					</ul>
+				</li>
+			</ul>
+
+
+	<!-- //pop-up-box -->
+					<script src="{% static 'js3/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+					<script>
+					$(document).ready(function() {
+					$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+					});
+
+					});
+					</script>
+
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	<footer>
+	</footer>
+</body>
+</html>
+{% endblock %}

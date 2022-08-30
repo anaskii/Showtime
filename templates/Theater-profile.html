@@ -1,0 +1,102 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+	<title></title>
+	<link href="{% static 'css3/style.css' %}" rel='stylesheet' type='text/css'/>
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
+	<link href="{% static 'css3/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Accessible Profile Widget Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+			<script src="{% static 'js3/jquery.min.js' %}"></script>
+			<script>$(document).ready(function(c) {
+			$('.alert-close').on('click', function(c){
+				$('.main-agile').fadeOut('slow', function(c){
+					$('.main-agile').remove();
+				});
+			});
+		});
+		</script>
+</head>
+<body>
+
+<button type="submit"><a href="{% url 'TheaterEditprofile' %}" >Edit Profile</a> </button>
+
+
+
+<button type="submit"><a href="{% url 'change_password' %}">Change Password</a></button>
+<form>
+	<h1 align="center" style="color:white">PROFILE</h1>
+		<div class="main-agileits" align="center">
+		<div class="right-wthree" align="center">
+				<img src="{{theater.image.url}}" style="border:solid red;height:150px;width:150px;"/>
+
+				<h2>{{user.username}}</h2>
+
+
+
+			</div>
+			<div class="left-w3ls">
+			<ul class="address">
+				<li>
+					<ul class="address-text">
+						<li><b>Phone</b></li>
+						<li>{{theater.phno}}</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>Location</b></li>
+						<li>{{theater.location}}</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>Theater name</b></li>
+						<li>{{theater.theatre_name}}</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="address-text">
+						<li><b>District</b></li>
+						<li>{{theater.district}}</li>
+					</ul>
+				</li>
+			</ul>
+
+
+
+
+	<!-- //pop-up-box -->
+					<script src="{% static 'js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+					<script>
+					$(document).ready(function() {
+					$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+					});
+
+					});
+					</script>
+
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	<footer>
+	</footer>
+</body>
+</html>
+{% endblock %}
